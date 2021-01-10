@@ -36,19 +36,19 @@ functions:
   getOtp:
     handler: wsgi_handler.handler
     events:
-      - https: 'GET /otp'
-  postMessage:
+      - http: 'GET /otp'
+  postMessageSms:
     handler: wsgi_handler.handler
     events:
-      - https: 'POST /message-sms'
+      - http: 'POST /message-sms'
   postMessageContent:
     handler: wsgi_handler.handler
     events:
-      - https: 'POST /message-content'
+      - http: 'POST /message-content'
   deleteMessage:
     handler: wsgi_handler.handler
     events:
-      - https: 'DELETE /message/{proxy+}'
+      - http: 'DELETE /message/{proxy+}'
 
 resources:
   Resources:

@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 OTP_TABLE = os.environ['OTP_TABLE']
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('temp-otp-table')
+table = dynamodb.Table(OTP_TABLE)
 
 
 @app.route("/otp")
@@ -43,7 +43,7 @@ def post_message_content():
 
     table.put_item(
         Item = {
-        'timestamp': timestamp,
+        'timestamp': str(timestamp),
         'otp': otp
         }
     )
@@ -61,9 +61,8 @@ def post_message_sms():
 
 @app.route("/message/<string:timestamp>", methods=["DELETE"])
 def delete_message(timestamp):
-    resp = table.delete(
+    resp = table.delete_item(
         Key={
             'timestamp': timestamp
         }
     )
-    print("resp from delete {}".format(resp))

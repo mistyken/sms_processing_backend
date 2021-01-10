@@ -2,12 +2,10 @@ boto3==1.16.51
 botocore==1.19.51
 click==7.1.2
 Flask==1.1.2
-futures==3.3.0
 itsdangerous==1.1.0
 Jinja2==2.11.2
 jmespath==0.10.0
 MarkupSafe==1.1.1
-pkg-resources==0.0.0
 python-dateutil==2.8.1
 s3transfer==0.3.3
 six==1.15.0
